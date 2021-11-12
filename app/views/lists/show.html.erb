@@ -5,7 +5,7 @@
 <% @list.bookmarks.each do |bookmark| %>
 <div class="card-trip">
   <img src="<%= bookmark.movie.poster_url %>" />
-    <button id="button"><%= link_to "Remove movie", list_bookmark_path(bookmark), method: :delete%></button>
+   <%= link_to "Remove movie", list_bookmark_path(bookmark), method: :delete%>
   <div class="card-trip-infos">
     <div>
       <h2><%= bookmark.movie.title %></h2>
