@@ -1,11 +1,18 @@
-<h1><%= @list.name %></h1>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>')">
+  <h1><%= @list.name %></h1>
+  <button id="button1"><%= link_to "Add movie to list", new_list_bookmark_path(@list) %></button>
+</div>
 <% @list.bookmarks.each do |bookmark| %>
-  <h2><%= bookmark.movie.title %></h2>
-  <h4><%= bookmark.movie.rating %></h4>
+<div class="card-trip">
+  <img src="<%= bookmark.movie.poster_url %>" />
+    <button id="button"><%= link_to "Remove movie", list_bookmark_path(bookmark), method: :delete%></button>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= bookmark.movie.title %></h2>
   <p><%= bookmark.movie.overview %></p>
-  <%= link_to "Remove movie from list", list_bookmark_path(bookmark), method: :delete%>
+    </div>
+    <h2 class="card-trip-pricing">★<%= bookmark.movie.rating %></h2>
+  </div>
+</div>
+  </div>
 <% end %>
-
-
-
-<%= link_to "Add movie to list", new_list_bookmark_path(@list) %>
