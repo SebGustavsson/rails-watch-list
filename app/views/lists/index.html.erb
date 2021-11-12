@@ -1,6 +1,7 @@
 <h1>All lists:</h1>
 <% @lists.each do |list| %>
-  <h3><%= link_to list.name, list_path(list) %></h3>
+  <h3><%= link_to list.name, list_path(list)  cl_image_tag("p1vm6z9saw032hj9ksv1",
+      width: 400, height: 300, crop: :fill) %></h3>
   <%= link_to "Add movie to list", new_list_bookmark_path(list) %>
 <% end %>
 </br>
